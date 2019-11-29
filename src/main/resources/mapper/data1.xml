@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.tommyyang.springdemo.dao.IData1Dao">
+
+    <insert id="batchInsert" useGeneratedKeys="true" keyProperty="id"
+        parameterType="java.util.List" keyColumn="id">
+        INSERT INTO data1 (`rid`, `name`, `type`)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.rid}, #{item.name}, #{item.type})
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="java.lang.Integer">
+        UPDATE data1 SET status = #{status} WHERE rid != #{rid}
+    </update>
+
+</mapper>
