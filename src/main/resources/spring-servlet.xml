@@ -17,6 +17,10 @@
     <context:component-scan base-package="cn.tommyyang.springdemo.controller"></context:component-scan>
 
     <mvc:annotation-driven/>
+
+    <mvc:interceptors>
+        <bean class="cn.tommyyang.springdemo.interceptor.impl.LogInterceptor"></bean>
+    </mvc:interceptors>
     <!--<mvc:resources mapping="/admin/**" location="/WEB-INF/jsp/"/>-->
     <!-- configure the InternalResourceViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"

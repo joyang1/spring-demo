@@ -1,6 +1,7 @@
 package cn.tommyyang.springdemo.controller;
 
 import cn.tommyyang.springdemo.BaseController;
+import cn.tommyyang.springdemo.annotation.Log;
 import cn.tommyyang.springdemo.service.IInitService;
 import cn.tommyyang.springdemo.service.impl.InitServiceImpl;
 import cn.tommyyang.springdemo.service.impl.InitServiceImpl2;
@@ -26,8 +27,10 @@ public class InitMethodController extends BaseController {
     private HashMap<Class, IInitService> hMap;
 
     @RequestMapping(value = "/init-map.do", method = RequestMethod.GET)
+    @Log(type = 1, content = "aaaa")
     public String manage(HttpServletRequest request, HttpServletResponse response) {
         hMap.get(InitServiceImpl2.class).test();
+        request.setAttribute("id", 111);
         return renderString(response, "wel");
     }
 
