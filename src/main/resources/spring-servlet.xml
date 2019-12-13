@@ -20,6 +20,10 @@
 
     <mvc:interceptors>
         <bean class="cn.tommyyang.springdemo.interceptor.impl.LogInterceptor"></bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/initTest/*"/>
+            <bean class="cn.tommyyang.springdemo.interceptor.impl.LogInterceptor1"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
     <!--<mvc:resources mapping="/admin/**" location="/WEB-INF/jsp/"/>-->
     <!-- configure the InternalResourceViewResolver -->
